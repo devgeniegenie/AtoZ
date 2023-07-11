@@ -29,4 +29,24 @@ const mySol = (n, arr) => {
 }
 
 const mySol2 = (n, arr) => {
+    let result = "NO";
+    let arrSum = arr.reduce((pre, cur) => pre + cur, 0);
+    let flag = 0;
+    const DFS = (L, sum) => {
+        if(flag) return;
+        if (L === n) {
+            if ((arrSum - sum) === sum) {
+                result = "YES";
+                flag = 1;
+            }
+        } else {
+            DFS(L + 1, sum + arr[L])
+            DFS(L + 1, sum)
+        }
+    };
+    DFS(0, 0);
+    console.log(result);
 };
+
+mySol(n, arr);
+mySol2(n, arr);
