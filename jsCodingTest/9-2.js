@@ -28,8 +28,8 @@ const mySol = (arr, n, m) => {
             }
         }
     };
-    path.push(1);
     check[1] = 1;
+    path.push(1);
     DFS(1);
     console.log(cnt);
 };
