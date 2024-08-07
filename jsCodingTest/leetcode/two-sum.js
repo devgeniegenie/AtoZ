@@ -16,4 +16,17 @@ var twoSum = function(nums, target) {
     return result;
 };
 
-console.log(twoSum([0,4,3,0], 0))
+//js 해시테이블일 이용해서 성능 개선
+var twoSum2 = function(nums, target) {
+    let map = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        let gap = nums[i] - target;
+        if (map.has(gap)) {
+            return [map.get(gap), i];
+        }
+        map.set(nums[i], i);
+    }
+    return [];
+};
+
+console.log(twoSum2([0,4,3,0], 0))
